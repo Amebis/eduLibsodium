@@ -1,1 +1,4 @@
 /.vs
+/Win32
+/x64
+/eduEd25519/*.user
