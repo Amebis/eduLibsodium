@@ -33,6 +33,9 @@
     <ClInclude Include="SHA512.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SHA256.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="eduEd25519.cpp">
