@@ -1,5 +1,8 @@
-// stdafx.cpp : source file that includes just the standard includes
-// eduEd25519.pch will be the pre-compiled header
-// stdafx.obj will contain the pre-compiled type information
+/*
+    eduEd25519 - High-speed high-security signatures
+
+    Copyright: 2017, The Commons Conservancy eduVPN Programme
+    SPDX-License-Identifier: GPL-3.0+
+*/
 
 #include "stdafx.h"
