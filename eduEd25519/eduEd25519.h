@@ -17,7 +17,7 @@ namespace eduEd25519 {
 			m_state = new crypto_hash_sha512_state;
 		}
 
-		virtual ~SHA512()
+		~SHA512()
 		{
 			delete m_state;
 		}
