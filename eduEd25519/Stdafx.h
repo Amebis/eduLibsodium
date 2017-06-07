@@ -7,4 +7,4 @@
 
 #pragma once
 
-
+#include "SHA512.h"
