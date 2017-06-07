@@ -7,17 +7,23 @@
 using namespace System;
 using namespace System::Runtime::InteropServices;
 
-namespace eduEd25519 {
-
-	public ref class SHA512 : public System::Security::Cryptography::HashAlgorithm
+namespace eduEd25519
+{
+	public ref class SHA512 : System::Security::Cryptography::HashAlgorithm
 	{
 	public:
 		SHA512()
 		{
+			// Create hash.
 			m_state = new crypto_hash_sha512_state;
+
+			// Initialize hash.
+			crypto_hash_sha512_init(m_state);
 		}
 
-		~SHA512()
+		~SHA512() {}
+
+		!SHA512()
 		{
 			delete m_state;
 		}
@@ -28,6 +34,7 @@ namespace eduEd25519 {
 			crypto_hash_sha512_init(m_state);
 		}
 
+	protected:
 		virtual void HashCore(cli::array<unsigned char, 1> ^data, int start, int size) override
 		{
 			// Extract, hash, delete.
