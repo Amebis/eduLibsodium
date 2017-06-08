@@ -59,7 +59,11 @@ namespace eduEd25519
 			Marshal::Copy(signature, 0, IntPtr(sig_buffer), sig_size);
 
 			// Verify the signature.
-			return _crypto_sign_ed25519_verify_detached(sig_buffer, ph_buffer, ph_size, m_key->m_sk + crypto_sign_ed25519_SEEDBYTES, 1) == 0 ? true : false;
+			bool success = _crypto_sign_ed25519_verify_detached(sig_buffer, ph_buffer, ph_size, m_key->m_sk + crypto_sign_ed25519_SEEDBYTES, 1) == 0;
+			delete[] sig_buffer;
+			delete[] ph_buffer;
+
+			return success;
 		}
 
 	protected:
