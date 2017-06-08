@@ -44,6 +44,7 @@ namespace eduEd25519
 		{
 			// Extract, hash, delete.
 			unsigned char *buffer = new unsigned char[size];
+#pragma warning(suppress: 6001)
 			Marshal::Copy(data, start, IntPtr(buffer), size);
 			crypto_hash_sha512_update(m_state, buffer, size);
 			delete[] buffer;

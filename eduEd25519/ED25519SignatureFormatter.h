@@ -27,7 +27,7 @@ namespace eduEd25519
 
 		ED25519SignatureFormatter(Security::Cryptography::AsymmetricAlgorithm ^key)
 		{
-			SetKey(key);
+			ED25519SignatureFormatter::SetKey(key);
 		}
 
 		virtual void SetKey(Security::Cryptography::AsymmetricAlgorithm ^key) override
@@ -49,6 +49,7 @@ namespace eduEd25519
 			// Extract hash.
 			int ph_size = hash->Length;
 			unsigned char *ph_buffer = new unsigned char[ph_size];
+#pragma warning(suppress: 6001)
 			Marshal::Copy(hash, 0, IntPtr(ph_buffer), ph_size);
 
 			// Sign the hash.
