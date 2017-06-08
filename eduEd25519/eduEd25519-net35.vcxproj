@@ -26,11 +26,11 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{525C3889-CCFA-444F-9190-BEAE637B46A5}</ProjectGuid>
+    <ProjectGuid>{75C812DF-3130-4B2A-8FC3-2E274E3A548F}</ProjectGuid>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>eduEd25519</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
