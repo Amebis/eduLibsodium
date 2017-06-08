@@ -33,8 +33,22 @@ namespace eduEd25519.Tests
                 // Set the hash algorithm to SHA512.
                 ed_formatter.SetHashAlgorithm("SHA512");
 
-                //Create a signature for hash and return it. 
+                // Create a signature for hash and return it.
                 byte[] sig = ed_formatter.CreateSignature(hash);
+
+                // Create an ED25519SignatureDeformatter object and pass it the
+                // ED25519 to transfer the key information.
+                ED25519SignatureDeformatter ed_deformatter = new ED25519SignatureDeformatter(ed);
+
+                // Set the hash algorithm to SHA512.
+                ed_deformatter.SetHashAlgorithm("SHA512");
+
+                // Verify signature.
+                Assert.IsTrue(ed_deformatter.VerifySignature(hash, sig));
+
+                // Modify message... Well, just hash.
+                hash[0] ^= 0x01;
+                Assert.IsFalse(ed_deformatter.VerifySignature(hash, sig));
             }
         }
 

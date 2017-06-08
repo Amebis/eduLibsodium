@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ED25519.h" />
+    <ClInclude Include="ED25519SignatureDeformatter.h" />
     <ClInclude Include="ED25519SignatureFormatter.h" />
     <ClInclude Include="eduEd25519.h" />
     <ClInclude Include="resource.h" />

@@ -11,4 +11,5 @@
 #include "SHA512.h"
 
 #include "ED25519.h"
+#include "ED25519SignatureDeformatter.h"
 #include "ED25519SignatureFormatter.h"

@@ -36,6 +36,9 @@
     <ClInclude Include="SHA256.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ED25519SignatureDeformatter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="ED25519SignatureFormatter.h">
       <Filter>Header Files</Filter>
     </ClInclude>

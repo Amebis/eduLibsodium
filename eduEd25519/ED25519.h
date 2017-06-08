@@ -104,7 +104,7 @@ namespace eduEd25519
 			virtual array<unsigned char>^ get()
 			{
 				array<unsigned char>^ result = gcnew array<unsigned char>(crypto_sign_ed25519_PUBLICKEYBYTES);
-				Marshal::Copy(IntPtr(m_sk + crypto_sign_ed25519_SECRETKEYBYTES - crypto_sign_ed25519_PUBLICKEYBYTES), result, 0, crypto_sign_ed25519_PUBLICKEYBYTES);
+				Marshal::Copy(IntPtr(m_sk + crypto_sign_ed25519_SEEDBYTES), result, 0, crypto_sign_ed25519_PUBLICKEYBYTES);
 				return result;
 			}
 		}
