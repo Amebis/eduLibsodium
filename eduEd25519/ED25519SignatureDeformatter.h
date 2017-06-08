@@ -9,9 +9,6 @@ SPDX-License-Identifier: GPL-3.0+
 
 #include <sodium/crypto_sign_ed25519.h>
 #include <sodium/utils.h>
-extern "C" {
-#include <libsodium/crypto_sign/ed25519/ref10/ed25519_ref10.h>
-}
 
 using namespace System;
 using namespace System::Runtime::InteropServices;
@@ -46,24 +43,7 @@ namespace eduEd25519
 
 		virtual bool VerifySignature(array<unsigned char> ^hash, cli::array<unsigned char> ^signature) override
 		{
-			// Extract hash.
-			int ph_size = hash->Length;
-			unsigned char *ph_buffer = new unsigned char[ph_size];
-#pragma warning(suppress: 6001)
-			Marshal::Copy(hash, 0, IntPtr(ph_buffer), ph_size);
-
-			// Extract signature.
-			int sig_size = signature->Length;
-			unsigned char *sig_buffer = new unsigned char[sig_size];
-#pragma warning(suppress: 6001)
-			Marshal::Copy(signature, 0, IntPtr(sig_buffer), sig_size);
-
-			// Verify the signature.
-			bool success = _crypto_sign_ed25519_verify_detached(sig_buffer, ph_buffer, ph_size, m_key->m_sk + crypto_sign_ed25519_SEEDBYTES, 1) == 0;
-			delete[] sig_buffer;
-			delete[] ph_buffer;
-
-			return success;
+			return m_key->VerifyHash(hash, signature);
 		}
 
 	protected:

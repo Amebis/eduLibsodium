@@ -9,9 +9,6 @@ SPDX-License-Identifier: GPL-3.0+
 
 #include <sodium/crypto_sign_ed25519.h>
 #include <sodium/utils.h>
-extern "C" {
-#include <libsodium/crypto_sign/ed25519/ref10/ed25519_ref10.h>
-}
 
 using namespace System;
 using namespace System::Runtime::InteropServices;
@@ -46,22 +43,7 @@ namespace eduEd25519
 
 		virtual array<unsigned char>^ CreateSignature(array<unsigned char> ^hash) override
 		{
-			// Extract hash.
-			int ph_size = hash->Length;
-			unsigned char *ph_buffer = new unsigned char[ph_size];
-#pragma warning(suppress: 6001)
-			Marshal::Copy(hash, 0, IntPtr(ph_buffer), ph_size);
-
-			// Sign the hash.
-			unsigned char sig[crypto_sign_ed25519_BYTES];
-			unsigned long long siglen;
-			_crypto_sign_ed25519_detached(sig, &siglen, ph_buffer, ph_size, m_key->m_sk, 1);
-			delete[] ph_buffer;
-
-			// Marshal to managed.
-			array<unsigned char>^ result = gcnew array<unsigned char>(crypto_sign_ed25519_BYTES);
-			Marshal::Copy(IntPtr(sig), result, 0, crypto_sign_ed25519_BYTES);
-			return result;
+			return m_key->SignHash(hash);
 		}
 
 	protected:

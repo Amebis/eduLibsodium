@@ -9,6 +9,9 @@ SPDX-License-Identifier: GPL-3.0+
 
 #include <sodium/crypto_sign_ed25519.h>
 #include <sodium/utils.h>
+extern "C" {
+#include <libsodium/crypto_sign/ed25519/ref10/ed25519_ref10.h>
+}
 
 using namespace System;
 using namespace System::Runtime::InteropServices;
@@ -33,6 +36,19 @@ namespace eduEd25519
 			// Generate random keypair.
 			unsigned char pk[crypto_sign_ed25519_PUBLICKEYBYTES];
 			crypto_sign_ed25519_keypair(pk, m_sk);
+		}
+
+		ED25519(array<unsigned char>^ pub_key)
+		{
+			// Key sizes are fixed.
+			KeySizeValue = crypto_sign_ed25519_SECRETKEYBYTES * 8;
+			LegalKeySizesValue = gcnew array<Security::Cryptography::KeySizes^>{gcnew Security::Cryptography::KeySizes(crypto_sign_ed25519_SECRETKEYBYTES * 8, crypto_sign_ed25519_SECRETKEYBYTES * 8, 8)};
+
+			// Allocate secure key.
+			m_sk = new unsigned char[crypto_sign_ed25519_SECRETKEYBYTES];
+
+			// Extract public key.
+			Marshal::Copy(pub_key, 0, IntPtr(m_sk + crypto_sign_ed25519_SEEDBYTES), crypto_sign_ed25519_PUBLICKEYBYTES);
 		}
 
 		~ED25519()
@@ -194,7 +210,49 @@ namespace eduEd25519
 			return success;
 		}
 
-	public:
+		array<unsigned char>^ SignHash(array<unsigned char> ^hash)
+		{
+			// Extract hash.
+			int ph_size = hash->Length;
+			unsigned char *ph_buffer = new unsigned char[ph_size];
+#pragma warning(suppress: 6001)
+			Marshal::Copy(hash, 0, IntPtr(ph_buffer), ph_size);
+
+			// Sign the hash.
+			unsigned char sig[crypto_sign_ed25519_BYTES];
+			unsigned long long siglen;
+			_crypto_sign_ed25519_detached(sig, &siglen, ph_buffer, ph_size, m_sk, 1);
+			delete[] ph_buffer;
+
+			// Marshal to managed.
+			array<unsigned char>^ result = gcnew array<unsigned char>(crypto_sign_ed25519_BYTES);
+			Marshal::Copy(IntPtr(sig), result, 0, crypto_sign_ed25519_BYTES);
+			return result;
+		}
+
+		bool VerifyHash(array<unsigned char> ^hash, cli::array<unsigned char> ^signature)
+		{
+			// Extract hash.
+			int ph_size = hash->Length;
+			unsigned char *ph_buffer = new unsigned char[ph_size];
+#pragma warning(suppress: 6001)
+			Marshal::Copy(hash, 0, IntPtr(ph_buffer), ph_size);
+
+			// Extract signature.
+			int sig_size = signature->Length;
+			unsigned char *sig_buffer = new unsigned char[sig_size];
+#pragma warning(suppress: 6001)
+			Marshal::Copy(signature, 0, IntPtr(sig_buffer), sig_size);
+
+			// Verify the signature.
+			bool success = _crypto_sign_ed25519_verify_detached(sig_buffer, ph_buffer, ph_size, m_sk + crypto_sign_ed25519_SEEDBYTES, 1) == 0;
+			delete[] sig_buffer;
+			delete[] ph_buffer;
+
+			return success;
+		}
+
+	private:
 		unsigned char* m_sk;
 	};
 }
