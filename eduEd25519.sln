@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsodium", "libsodium\builds\msvc\vs2017\libsodium\libsodium.vcxproj", "{A185B162-6CB6-4502-B03F-B56F7699A8D9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "eduEd25519", "eduEd25519\eduEd25519.vcxproj", "{525C3889-CCFA-444F-9190-BEAE637B46A5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "eduEd25519-net45", "eduEd25519\eduEd25519-net45.vcxproj", "{525C3889-CCFA-444F-9190-BEAE637B46A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eduEd25519Tests", "eduEd25519Tests\eduEd25519Tests.csproj", "{A4AE321A-E6B4-47A8-A2B2-0727D1A17721}"
 EndProject
