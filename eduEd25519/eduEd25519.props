@@ -9,8 +9,8 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir>$(Configuration)\$(TargetFrameworkVersion)\$(Platform)\</OutDir>
-    <IntDir>$(Configuration)\$(TargetFrameworkVersion)\$(Platform)\</IntDir>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(TargetFrameworkVersion)\$(Platform)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(TargetFrameworkVersion)\$(Platform)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <CodeAnalysisRuleSet>MixedRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
