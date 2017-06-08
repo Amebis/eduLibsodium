@@ -7,7 +7,6 @@
 
 using eduEd25519Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Text;
 
 namespace eduEd25519.Tests

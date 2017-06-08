@@ -109,6 +109,91 @@ namespace eduEd25519
 			}
 		}
 
+		array<unsigned char>^ SignCombined(array<unsigned char>^ data)
+		{
+			// Extract data.
+			int mlen = data->Length;
+			unsigned char *m = new unsigned char[mlen];
+#pragma warning(suppress: 6001)
+			Marshal::Copy(data, 0, IntPtr(m), mlen);
+
+			// Sign.
+			unsigned char *sm = new unsigned char[crypto_sign_ed25519_BYTES + mlen];
+			unsigned long long smlen;
+			crypto_sign_ed25519(sm, &smlen, m, mlen, m_sk);
+			delete[] m;
+
+			// Get signed message.
+			array<unsigned char>^ result = gcnew array<unsigned char>((int)smlen);
+			Marshal::Copy(IntPtr(sm), result, 0, (int)smlen);
+			delete[] sm;
+			return result;
+		}
+
+		bool VerifyCombined(array<unsigned char>^ smsg, array<unsigned char>^% data)
+		{
+			// Extract signed message.
+			int smlen = smsg->Length;
+			unsigned char *sm = new unsigned char[smlen];
+#pragma warning(suppress: 6001)
+			Marshal::Copy(smsg, 0, IntPtr(sm), smlen);
+
+			// Verify.
+			unsigned char *m = new unsigned char[smlen - crypto_sign_ed25519_BYTES];
+			unsigned long long mlen;
+			bool success = crypto_sign_ed25519_open(m, &mlen, sm, smlen, m_sk + crypto_sign_ed25519_SEEDBYTES) == 0;
+			delete[] sm;
+
+			// Get message.
+			data = gcnew array<unsigned char>((int)mlen);
+			Marshal::Copy(IntPtr(m), data, 0, (int)mlen);
+			delete[] m;
+
+			return success;
+		}
+
+		array<unsigned char>^ SignDetached(array<unsigned char>^ data)
+		{
+			// Extract data.
+			int mlen = data->Length;
+			unsigned char *m = new unsigned char[mlen];
+#pragma warning(suppress: 6001)
+			Marshal::Copy(data, 0, IntPtr(m), mlen);
+
+			// Sign.
+			unsigned char *sig = new unsigned char[crypto_sign_ed25519_BYTES];
+			unsigned long long sig_len;
+			crypto_sign_ed25519_detached(sig, &sig_len, m, mlen, m_sk);
+			delete[] m;
+
+			// Get signature.
+			array<unsigned char>^ result = gcnew array<unsigned char>(crypto_sign_ed25519_BYTES);
+			Marshal::Copy(IntPtr(sig), result, 0, crypto_sign_ed25519_BYTES);
+			delete[] sig;
+			return result;
+		}
+
+		bool VerifyDetached(array<unsigned char>^ data, array<unsigned char>^ signature)
+		{
+			// Extract data.
+			int mlen = data->Length;
+			unsigned char *m = new unsigned char[mlen];
+#pragma warning(suppress: 6001)
+			Marshal::Copy(data, 0, IntPtr(m), mlen);
+
+			// Extract signature.
+			unsigned char *sig = new unsigned char[crypto_sign_ed25519_BYTES];
+#pragma warning(suppress: 6001)
+			Marshal::Copy(signature, 0, IntPtr(sig), crypto_sign_ed25519_BYTES);
+
+			// Verify.
+			bool success = crypto_sign_ed25519_verify_detached(sig, m, mlen, m_sk + crypto_sign_ed25519_SEEDBYTES) == 0;
+			delete[] sig;
+			delete[] m;
+
+			return success;
+		}
+
 	public:
 		unsigned char* m_sk;
 	};
