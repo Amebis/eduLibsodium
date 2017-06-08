@@ -14,7 +14,7 @@ using namespace System::Runtime::InteropServices;
 
 namespace eduEd25519
 {
-	public ref class SHA256 : System::Security::Cryptography::HashAlgorithm
+	public ref class SHA256 : Security::Cryptography::HashAlgorithm
 	{
 	public:
 		SHA256()
@@ -40,7 +40,7 @@ namespace eduEd25519
 		}
 
 	protected:
-		virtual void HashCore(cli::array<unsigned char, 1> ^data, int start, int size) override
+		virtual void HashCore(array<unsigned char> ^data, int start, int size) override
 		{
 			// Extract, hash, delete.
 			unsigned char *buffer = new unsigned char[size];
@@ -49,14 +49,14 @@ namespace eduEd25519
 			delete[] buffer;
 		}
 
-		virtual cli::array<unsigned char, 1>^ HashFinal() override
+		virtual array<unsigned char>^ HashFinal() override
 		{
 			// Finalize and get hash value.
 			unsigned char buffer[crypto_hash_sha256_BYTES];
 			crypto_hash_sha256_final(m_state, buffer);
 
 			// Marshal to managed.
-			cli::array<unsigned char, 1>^ result = gcnew cli::array<unsigned char, 1>(crypto_hash_sha256_BYTES);
+			array<unsigned char>^ result = gcnew array<unsigned char>(crypto_hash_sha256_BYTES);
 			Marshal::Copy(IntPtr(buffer), result, 0, crypto_hash_sha256_BYTES);
 			return result;
 		}
