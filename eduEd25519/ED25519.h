@@ -35,8 +35,12 @@ namespace eduEd25519
 			crypto_sign_ed25519_keypair(pk, m_sk);
 		}
 
-		~ED25519() {}
+		~ED25519()
+		{
+			ED25519::!ED25519();
+		}
 
+	protected:
 		!ED25519()
 		{
 			// Sanitize secret key.
@@ -44,6 +48,7 @@ namespace eduEd25519
 			delete[] m_sk;
 		}
 
+	public:
 		property String^ SignatureAlgorithm
 		{
 			virtual String^ get() override

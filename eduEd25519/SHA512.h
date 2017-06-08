@@ -26,13 +26,18 @@ namespace eduEd25519
 			crypto_hash_sha512_init(m_state);
 		}
 
-		~SHA512() {}
+		~SHA512()
+		{
+			SHA512::!SHA512();
+		}
 
+	protected:
 		!SHA512()
 		{
 			delete m_state;
 		}
 
+	public:
 		virtual void Initialize() override
 		{
 			// Initialize hash.

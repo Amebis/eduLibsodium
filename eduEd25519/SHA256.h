@@ -26,13 +26,18 @@ namespace eduEd25519
 			crypto_hash_sha256_init(m_state);
 		}
 
-		~SHA256() {}
+		~SHA256()
+		{
+			SHA256::!SHA256();
+		}
 
+	protected:
 		!SHA256()
 		{
 			delete m_state;
 		}
 
+	public:
 		virtual void Initialize() override
 		{
 			// Initialize hash.
