@@ -61,6 +61,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="ED25519SignatureFormatterTest.cs" />
     <Compile Include="MultiplatformDllLoader.cs" />
     <Compile Include="SHA256Test.cs" />
     <Compile Include="SHA512Tests.cs" />

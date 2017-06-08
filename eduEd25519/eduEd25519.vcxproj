@@ -134,8 +134,11 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ED25519.h" />
+    <ClInclude Include="ED25519SignatureFormatter.h" />
     <ClInclude Include="eduEd25519.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SHA256.h" />
