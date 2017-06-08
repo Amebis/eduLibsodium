@@ -83,6 +83,9 @@
   <ImportGroup Label="PropertySheets">
     <Import Project="eduEd25519.$(Configuration).props" />
   </ImportGroup>
+  <PropertyGroup>
+    <OutDir>$(SolutionDir)$(Configuration)\net45\$(Platform)\</OutDir>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
