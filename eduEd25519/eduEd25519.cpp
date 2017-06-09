@@ -9,3 +9,4 @@
 
 #include "eduEd25519.h"
 
+#pragma comment(lib, "libsodium.lib")

@@ -1,8 +1,0 @@
-﻿  ConfigurationType : StaticLibrary
-  Configuration     : DebugLTCG
-  PlatformToolset   : v141
-  TargetPath        : C:\Users\Simon\Projekti\eduVPN\eduEd25519\libsodium\builds\msvc\vs2017\libsodium\..\..\..\..\bin\Win32\Debug\v141\ltcg\libsodium.lib
-  Will copy C:\Users\Simon\Projekti\eduVPN\eduEd25519\libsodium\builds\msvc\vs2017\libsodium\..\..\version.h -> C:\Users\Simon\Projekti\eduVPN\eduEd25519\libsodium\builds\msvc\vs2017\libsodium\..\..\..\..\src\libsodium\include\sodium\version.h
-  Option-amd64asm   : 
-          1 file(s) copied.
-  libsodium.vcxproj -> C:\Users\Simon\Projekti\eduVPN\eduEd25519\libsodium\builds\msvc\vs2017\libsodium\..\..\..\..\bin\Win32\Debug\v141\ltcg\libsodium.lib

@@ -20,13 +20,14 @@
       <WarningLevel>Level4</WarningLevel>
       <StringPooling>true</StringPooling>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>..\libsodium\src\libsodium\include;..\libsodium\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SDK\libsodium\src\libsodium\include;C:\SDK\libsodium\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <AdditionalLibraryDirectories>C:\SDK\libsodium\bin\$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -56,10 +57,5 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="app.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\libsodium\builds\msvc\vs2017\libsodium\libsodium.vcxproj">
-      <Project>{a185b162-6cb6-4502-b03f-b56f7699a8d9}</Project>
-    </ProjectReference>
   </ItemGroup>
 </Project>
