@@ -7,7 +7,9 @@
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
-  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="UserMacros">
+    <LIBSODIUM_SDK>C:\SDK\libsodium\</LIBSODIUM_SDK>
+  </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(SolutionDir)bin\$(Configuration)\$(TargetFrameworkVersion)\$(Platform)\</OutDir>
     <IntDir>obj\$(Configuration)\$(TargetFrameworkVersion)\$(Platform)\</IntDir>
@@ -20,20 +22,24 @@
       <WarningLevel>Level4</WarningLevel>
       <StringPooling>true</StringPooling>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>C:\SDK\libsodium\src\libsodium\include;C:\SDK\libsodium\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(LIBSODIUM_SDK)src\libsodium\include;$(LIBSODIUM_SDK)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>C:\SDK\libsodium\bin\$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(LIBSODIUM_SDK)bin\$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
+    <BuildMacro Include="LIBSODIUM_SDK">
+      <Value>$(LIBSODIUM_SDK)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ED25519.h" />
