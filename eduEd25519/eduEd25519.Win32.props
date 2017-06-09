@@ -6,11 +6,12 @@
     SPDX-License-Identifier: GPL-3.0+
 -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ImportGroup Label="PropertySheets" >
+  <ImportGroup Label="PropertySheets">
     <Import Project="eduEd25519.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(TargetFrameworkVersion)\x86\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
