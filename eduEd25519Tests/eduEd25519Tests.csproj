@@ -53,9 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\eduEd25519\eduEd25519-net45.vcxproj">
-      <Project>{525c3889-ccfa-444f-9190-beae637b46a5}</Project>
-      <Name>eduEd25519-net45</Name>
+    <ProjectReference Include="..\eduEd25519\eduEd25519.vcxproj">
+      <Project>{a25c3684-302e-4c4d-96e9-176c12fe7423}</Project>
+      <Name>eduEd25519</Name>
       <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
