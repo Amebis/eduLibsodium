@@ -7,6 +7,7 @@ SPDX-License-Identifier: GPL-3.0+
 
 #pragma once
 
+// When libsodium include files are not found, read the chapter "Compiling libsodium" in README.md first.
 #include <sodium/crypto_hash_sha512.h>
 
 using namespace System;
