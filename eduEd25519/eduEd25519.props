@@ -41,6 +41,10 @@
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>
+  <Target Name="Sign" Condition="'$(ManifestCertificateThumbprint)' != ''" AfterTargets="_Manifest" BeforeTargets="RegisterOutput" Inputs="$(OutDir)$(TargetName)$(TargetExt)" Outputs="$(IntDir)$(TargetName).sign">
+    <Exec Command="signtool.exe sign /sha1 &quot;%ManifestCertificateThumbprint%&quot; /fd sha256 /as /tr &quot;%ManifestTimestampRFC3161Url%&quot; /q &quot;$(TargetPath)&quot;" />
+    <Touch Files="$(IntDir)$(TargetName).sign" AlwaysCreate="true" />
+  </Target>
 
   <!--
     Configuration specific settings
