@@ -128,13 +128,12 @@ namespace eduEd25519
 			}
 		}
 
-		array<unsigned char>^ SignCombined(array<unsigned char>^ data)
+		array<unsigned char>^ SignCombined(array<unsigned char>^ data, int start, int mlen)
 		{
 			// Extract data.
-			int mlen = data->Length;
 			unsigned char *m = new unsigned char[mlen];
 #pragma warning(suppress: 6001)
-			Marshal::Copy(data, 0, IntPtr(m), mlen);
+			Marshal::Copy(data, start, IntPtr(m), mlen);
 
 			// Sign.
 			unsigned char *sm = new unsigned char[crypto_sign_ed25519_BYTES + mlen];
@@ -149,13 +148,17 @@ namespace eduEd25519
 			return result;
 		}
 
-		bool VerifyCombined(array<unsigned char>^ smsg, array<unsigned char>^% data)
+		array<unsigned char>^ SignCombined(array<unsigned char>^ data)
+		{
+			return SignCombined(data, 0, data->Length);
+		}
+
+		bool VerifyCombined(array<unsigned char>^ smsg, int start, int smlen, array<unsigned char>^% data)
 		{
 			// Extract signed message.
-			int smlen = smsg->Length;
 			unsigned char *sm = new unsigned char[smlen];
 #pragma warning(suppress: 6001)
-			Marshal::Copy(smsg, 0, IntPtr(sm), smlen);
+			Marshal::Copy(smsg, start, IntPtr(sm), smlen);
 
 			// Verify.
 			unsigned char *m = new unsigned char[smlen - crypto_sign_ed25519_BYTES];
@@ -171,13 +174,17 @@ namespace eduEd25519
 			return success;
 		}
 
-		array<unsigned char>^ SignDetached(array<unsigned char>^ data)
+		bool VerifyCombined(array<unsigned char>^ smsg, array<unsigned char>^% data)
+		{
+			return VerifyCombined(smsg, 0, smsg->Length, data);
+		}
+
+		array<unsigned char>^ SignDetached(array<unsigned char>^ data, int start, int mlen)
 		{
 			// Extract data.
-			int mlen = data->Length;
 			unsigned char *m = new unsigned char[mlen];
 #pragma warning(suppress: 6001)
-			Marshal::Copy(data, 0, IntPtr(m), mlen);
+			Marshal::Copy(data, start, IntPtr(m), mlen);
 
 			// Sign.
 			unsigned char *sig = new unsigned char[crypto_sign_ed25519_BYTES];
@@ -192,13 +199,17 @@ namespace eduEd25519
 			return result;
 		}
 
-		bool VerifyDetached(array<unsigned char>^ data, array<unsigned char>^ signature)
+		array<unsigned char>^ SignDetached(array<unsigned char>^ data)
+		{
+			return SignDetached(data, 0, data->Length);
+		}
+
+		bool VerifyDetached(array<unsigned char>^ data, int start, int mlen, array<unsigned char>^ signature)
 		{
 			// Extract data.
-			int mlen = data->Length;
 			unsigned char *m = new unsigned char[mlen];
 #pragma warning(suppress: 6001)
-			Marshal::Copy(data, 0, IntPtr(m), mlen);
+			Marshal::Copy(data, start, IntPtr(m), mlen);
 
 			// Extract signature.
 			unsigned char *sig = new unsigned char[crypto_sign_ed25519_BYTES];
@@ -211,6 +222,11 @@ namespace eduEd25519
 			delete[] m;
 
 			return success;
+		}
+
+		bool VerifyDetached(array<unsigned char>^ data, array<unsigned char>^ signature)
+		{
+			return VerifyDetached(data, 0, data->Length, signature);
 		}
 
 		array<unsigned char>^ SignHash(array<unsigned char> ^hash)
