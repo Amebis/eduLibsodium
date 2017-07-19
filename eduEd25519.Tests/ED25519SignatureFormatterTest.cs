@@ -5,7 +5,7 @@
     SPDX-License-Identifier: GPL-3.0+
 */
 
-using eduEd25519Tests;
+using eduEd25519.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
 

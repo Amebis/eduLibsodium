@@ -9,7 +9,7 @@ using System;
 using System.IO;
 using System.Reflection;
 
-namespace eduEd25519Tests
+namespace eduEd25519.Tests
 {
     /// <summary>
     /// A helper class to register our custom assembly resolver

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "eduEd25519", "eduEd25519\eduEd25519.vcxproj", "{A25C3684-302E-4C4D-96E9-176C12FE7423}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eduEd25519Tests", "eduEd25519Tests\eduEd25519Tests.csproj", "{A4AE321A-E6B4-47A8-A2B2-0727D1A17721}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eduEd25519.Tests", "eduEd25519.Tests\eduEd25519.Tests.csproj", "{A4AE321A-E6B4-47A8-A2B2-0727D1A17721}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B1E01470-2C1F-4B54-8E86-517E2D39C5EC}"
 	ProjectSection(SolutionItems) = preProject
