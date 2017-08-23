@@ -21,9 +21,9 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyTitleAttribute(L"eduEd25519")];
 [assembly:AssemblyDescriptionAttribute(L"")];
 [assembly:AssemblyConfigurationAttribute(L"")];
-[assembly:AssemblyCompanyAttribute(L"Amebis")];
+[assembly:AssemblyCompanyAttribute(L"SURF")];
 [assembly:AssemblyProductAttribute(L"eduEd25519")];
-[assembly:AssemblyCopyrightAttribute(L"Copyright © Amebis 2017")];
+[assembly:AssemblyCopyrightAttribute(L"Copyright © The Commons Conservancy eduVPN Programme 2017")];
 [assembly:AssemblyTrademarkAttribute(L"")];
 [assembly:AssemblyCultureAttribute(L"")];
 
@@ -35,10 +35,8 @@ using namespace System::Security::Permissions;
 //      Build Number
 //      Revision
 //
-// You can specify all the value or you can default the Revision and Build Numbers
-// by using the '*' as shown below:
-
-[assembly:AssemblyVersionAttribute("1.0.*")];
+[assembly:AssemblyVersionAttribute("1.0.0.*")];
+[assembly:AssemblyInformationalVersion("1.0")];
 
 [assembly:ComVisible(false)];
 
