@@ -7,11 +7,21 @@
 
 #pragma once
 
-// When libsodium include files are not found, read the chapter "Compiling libsodium" in README.md first.
+// When libsodium include files are not found, read the chapter "Compiling/Downloading libsodium" in README.md first.
 #include <sodium/crypto_sign_ed25519.h>
 #include <sodium/utils.h>
 extern "C" {
-#include <libsodium/crypto_sign/ed25519/ref10/ed25519_ref10.h>
+	int _crypto_sign_ed25519_detached(unsigned char *sig,
+		unsigned long long *siglen_p,
+		const unsigned char *m,
+		unsigned long long mlen,
+		const unsigned char *sk, int prehashed);
+
+	int _crypto_sign_ed25519_verify_detached(const unsigned char *sig,
+		const unsigned char *m,
+		unsigned long long   mlen,
+		const unsigned char *pk,
+		int prehashed);
 }
 
 using namespace System;

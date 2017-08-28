@@ -1,3 +1,8 @@
+## Downloading libsodium
+
+1. Download libsodium [pre-compiled MSVC binaries](https://download.libsodium.org/libsodium/releases/) and extract them to `C:\SDK\libsodium` (or change `LIBSODIUM_SDK` in `eduEd25519\eduEd25519.props` to the folder of your choice).
+
+
 ## Compiling libsodium
 
 1. Clone `git@github.com:Amebis/libsodium.git` to `C:\SDK\libsodium` (or change `LIBSODIUM_SDK` in `eduEd25519\eduEd25519.props` to the folder of your choice).

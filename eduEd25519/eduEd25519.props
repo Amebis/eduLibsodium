@@ -25,14 +25,15 @@
       <WarningLevel>Level4</WarningLevel>
       <StringPooling>true</StringPooling>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(LIBSODIUM_SDK)src\libsodium\include;$(LIBSODIUM_SDK)src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(LIBSODIUM_SDK)include;$(LIBSODIUM_SDK)src\libsodium\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <EnablePREfast>true</EnablePREfast>
     </ClCompile>
     <Link>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>$(LIBSODIUM_SDK)bin\$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(LIBSODIUM_SDK)$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg;$(LIBSODIUM_SDK)bin\$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -64,7 +65,7 @@
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
   </ItemDefinitionGroup>
-  
+
   <!--
     Platform specific settings
   -->
