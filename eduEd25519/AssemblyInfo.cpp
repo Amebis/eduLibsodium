@@ -21,7 +21,7 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyTitleAttribute(L"eduEd25519")];
 [assembly:AssemblyDescriptionAttribute(L"")];
 [assembly:AssemblyConfigurationAttribute(L"")];
-[assembly:AssemblyCompanyAttribute(L"SURF")];
+[assembly:AssemblyCompanyAttribute(L"SURFnet")];
 [assembly:AssemblyProductAttribute(L"eduEd25519")];
 [assembly:AssemblyCopyrightAttribute(L"Copyright © The Commons Conservancy eduVPN Programme 2017")];
 [assembly:AssemblyTrademarkAttribute(L"")];
