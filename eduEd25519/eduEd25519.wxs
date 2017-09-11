@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    eduEd25519 - High-speed high-security signatures
+
+    Copyright: 2017, The Commons Conservancy eduVPN Programme
+    SPDX-License-Identifier: GPL-3.0+
+-->
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <!--
+            Components
+        -->
+        <DirectoryRef Id="INSTALLDIR">
+            <Component Id="eduEd25519.dll" Guid="{4D1F1278-9044-4AFD-98E1-71BB39FCB0F1}">
+                <File Source="eduEd25519.dll"/>
+            </Component>
+        </DirectoryRef>
+
+
+        <!--
+            Component groups
+        -->
+        <ComponentGroup Id="eduEd25519.dll">
+            <ComponentRef Id="eduEd25519.dll"/>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

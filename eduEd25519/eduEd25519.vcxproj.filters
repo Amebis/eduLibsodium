@@ -62,4 +62,7 @@
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="eduEd25519.wxs" />
+  </ItemGroup>
 </Project>
