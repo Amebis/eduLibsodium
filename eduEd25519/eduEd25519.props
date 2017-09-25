@@ -11,7 +11,7 @@
   -->
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <LIBSODIUM_SDK>C:\SDK\libsodium\</LIBSODIUM_SDK>
+    <LIBSODIUM_SDK>C:\SDK\libsodium\1.0.14\</LIBSODIUM_SDK>
   </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
