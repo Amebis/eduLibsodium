@@ -105,7 +105,6 @@ namespace eduEd25519
 			nodeList = document->GetElementsByTagName("SecretKey");
 			if (nodeList->Count > 0)
 			{
-				// TODO: Decrypt the key.
 				array<unsigned char>^ sk = Convert::FromBase64String(nodeList->Item(0)->InnerText);
 				Marshal::Copy(sk, 0, IntPtr(m_sk), crypto_sign_ed25519_SECRETKEYBYTES);
 				Array::Clear(sk, 0, crypto_sign_ed25519_SECRETKEYBYTES);
@@ -117,7 +116,6 @@ namespace eduEd25519
 			StringBuilder^ sb = gcnew StringBuilder();
 			sb->Append("<ED25519KeyValue>");
 
-			// TODO: Encrypt the key.
 			sb->Append("<SecretKey>");
 			array<unsigned char>^ sk = gcnew array<unsigned char>(crypto_sign_ed25519_SECRETKEYBYTES);
 			Marshal::Copy(IntPtr(m_sk), sk, 0, crypto_sign_ed25519_SECRETKEYBYTES);
