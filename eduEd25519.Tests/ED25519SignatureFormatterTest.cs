@@ -7,6 +7,7 @@
 
 using eduEd25519.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Text;
 
 namespace eduEd25519.Tests
@@ -29,6 +30,13 @@ namespace eduEd25519.Tests
                 // ED25519 to transfer the key information.
                 ED25519SignatureFormatter ed_formatter = new ED25519SignatureFormatter(ed);
 
+                try
+                {
+                    // Setting the hash algorithm to SHA1 should fail.
+                    ed_formatter.SetHashAlgorithm("SHA1");
+                    Assert.Fail("Unsupported hash algorithm tolerated");
+                } catch (ArgumentException) { }
+
                 // Set the hash algorithm to SHA512.
                 ed_formatter.SetHashAlgorithm("SHA512");
 
@@ -38,6 +46,14 @@ namespace eduEd25519.Tests
                 // Create an ED25519SignatureDeformatter object and pass it the
                 // ED25519 to transfer the key information.
                 ED25519SignatureDeformatter ed_deformatter = new ED25519SignatureDeformatter(ed);
+
+                try
+                {
+                    // Setting the hash algorithm to SHA1 should fail.
+                    ed_deformatter.SetHashAlgorithm("SHA1");
+                    Assert.Fail("Unsupported hash algorithm tolerated");
+                }
+                catch (ArgumentException) { }
 
                 // Set the hash algorithm to SHA512.
                 ed_deformatter.SetHashAlgorithm("SHA512");

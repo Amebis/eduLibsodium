@@ -32,14 +32,14 @@ namespace eduEd25519
 		{
 			m_key = dynamic_cast<ED25519^>(key);
 			if (m_key == nullptr)
-				throw gcnew ArgumentException(); // TODO: Make error message using resources.
+				throw gcnew ArgumentNullException(L"key");
 		}
 
 		virtual void SetHashAlgorithm(String ^name) override
 		{
 			// ED25519SignatureFormatter always uses SHA512 algorithm.
 			if (name->ToUpper()->CompareTo(L"SHA512") != 0)
-				throw gcnew ArgumentException(); // TODO: Make error message using resources.
+				throw gcnew ArgumentException(String::Format(GetResourceString(L"ErrorUnsupportedHash"), name), L"name");
 		}
 
 		virtual array<unsigned char>^ CreateSignature(array<unsigned char> ^hash) override

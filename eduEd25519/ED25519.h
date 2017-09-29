@@ -284,4 +284,12 @@ namespace eduEd25519
 	private:
 		unsigned char* m_sk;
 	};
+
+	inline String^ GetResourceString(String^ id)
+	{
+		auto resourceAssembly = Reflection::Assembly::GetExecutingAssembly();
+		auto resourceName = resourceAssembly->GetName()->Name + L".Strings";
+		auto resourceManager = gcnew Resources::ResourceManager(resourceName, resourceAssembly);
+		return cli::safe_cast<String^>(resourceManager->GetObject(id));
+	}
 }

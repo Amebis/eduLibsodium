@@ -115,6 +115,10 @@
   <ItemGroup>
     <None Include="eduEd25519.wxs" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Strings.resx" />
+    <EmbeddedResource Include="Strings.sl.resx" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
