@@ -257,7 +257,7 @@ namespace eduEd25519
 			return result;
 		}
 
-		bool VerifyHash(array<unsigned char> ^hash, cli::array<unsigned char> ^signature)
+		bool VerifyHash(array<unsigned char> ^hash, array<unsigned char> ^signature)
 		{
 			// Extract hash.
 			int ph_size = hash->Length;

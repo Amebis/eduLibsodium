@@ -42,7 +42,7 @@ namespace eduEd25519
 				throw gcnew ArgumentException(String::Format(GetResourceString(L"ErrorUnsupportedHash"), name), L"name");
 		}
 
-		virtual bool VerifySignature(array<unsigned char> ^hash, cli::array<unsigned char> ^signature) override
+		virtual bool VerifySignature(array<unsigned char> ^hash, array<unsigned char> ^signature) override
 		{
 			return m_key->VerifyHash(hash, signature);
 		}
