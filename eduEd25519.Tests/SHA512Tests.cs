@@ -5,7 +5,6 @@
     SPDX-License-Identifier: GPL-3.0+
 */
 
-using eduEd25519.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Text;
@@ -18,7 +17,7 @@ namespace eduEd25519.Tests
         [TestMethod()]
         public void SHA512Test()
         {
-            eduEd25519.SHA512 hash = new eduEd25519.SHA512();
+            var hash = new eduEd25519.SHA512();
 
             CollectionAssert.AreEqual(
                 Convert.FromBase64String($"87+apwFp5KtTOfIHWJhlOP5slte+PRhKA2zegWEQX89TUWQo+glqxWJHu4gIWwWH1eyOVqaAexrzUTBbIQPXSw=="),

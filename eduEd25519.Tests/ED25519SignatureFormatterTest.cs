@@ -5,7 +5,6 @@
     SPDX-License-Identifier: GPL-3.0+
 */
 
-using eduEd25519.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Text;
@@ -28,7 +27,7 @@ namespace eduEd25519.Tests
 
                 // Create an ED25519SignatureFormatter object and pass it the
                 // ED25519 to transfer the key information.
-                ED25519SignatureFormatter ed_formatter = new ED25519SignatureFormatter(ed);
+                var ed_formatter = new ED25519SignatureFormatter(ed);
 
                 try
                 {
@@ -41,11 +40,11 @@ namespace eduEd25519.Tests
                 ed_formatter.SetHashAlgorithm("SHA512");
 
                 // Create a signature for hash and return it.
-                byte[] sig = ed_formatter.CreateSignature(hash);
+                var sig = ed_formatter.CreateSignature(hash);
 
                 // Create an ED25519SignatureDeformatter object and pass it the
                 // ED25519 to transfer the key information.
-                ED25519SignatureDeformatter ed_deformatter = new ED25519SignatureDeformatter(ed);
+                var ed_deformatter = new ED25519SignatureDeformatter(ed);
 
                 try
                 {
