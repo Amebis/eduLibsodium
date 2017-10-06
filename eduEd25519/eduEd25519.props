@@ -10,9 +10,6 @@
     Global settings - applied to all configurations and platforms
   -->
   <ImportGroup Label="PropertySheets" />
-  <PropertyGroup Label="UserMacros">
-    <LIBSODIUM_SDK>C:\SDK\libsodium\1.0.14\</LIBSODIUM_SDK>
-  </PropertyGroup>
   <PropertyGroup>
     <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
     <IntDir>obj\$(Configuration)\$(Platform)\</IntDir>
@@ -24,22 +21,16 @@
       <WarningLevel>Level4</WarningLevel>
       <StringPooling>true</StringPooling>
       <PrecompiledHeader>Use</PrecompiledHeader>
-      <AdditionalIncludeDirectories>$(LIBSODIUM_SDK)include;$(LIBSODIUM_SDK)src\libsodium\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(LIBSODIUM)include;$(LIBSODIUM)src\libsodium\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <AdditionalLibraryDirectories>$(LIBSODIUM_SDK)$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg;$(LIBSODIUM_SDK)bin\$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(LIBSODIUM)$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg;$(LIBSODIUM)bin\$(Platform)\$(Configuration)\$(PlatformToolset)\ltcg;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>/ignore:4099 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <BuildMacro Include="LIBSODIUM_SDK">
-      <Value>$(LIBSODIUM_SDK)</Value>
-      <EnvironmentVariable>true</EnvironmentVariable>
-    </BuildMacro>
-  </ItemGroup>
   <Target Name="Sign" Condition="'$(ManifestCertificateThumbprint)' != ''" AfterTargets="_Manifest" BeforeTargets="RegisterOutput" Inputs="$(OutDir)$(TargetName)$(TargetExt)" Outputs="$(IntDir)$(TargetName).sign">
     <Exec Command="signtool.exe sign /sha1 &quot;%ManifestCertificateThumbprint%&quot; /fd sha256 /as /tr &quot;%ManifestTimestampRFC3161Url%&quot; /q &quot;$(TargetPath)&quot;" />
     <Touch Files="$(IntDir)$(TargetName).sign" AlwaysCreate="true" />
