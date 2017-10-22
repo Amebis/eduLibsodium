@@ -1,0 +1,20 @@
+version: master.{build}
+image: Visual Studio 2017
+before_build:
+  - nuget restore
+configuration:
+  - Debug
+  - Release
+platform:
+  - x86
+  - x64
+build:
+  project: eduEd25519.sln
+  parallel: true
+  verbosity: minimal
+artifacts:
+  - path: bin\$(configuration)\$(platform)\eduEd25519.dll
+  - path: bin\$(configuration)\$(platform)\eduEd25519.pdb
+  - path: bin\$(configuration)\$(platform)\sl\eduEd25519.resources.dll
+  - path: bin\$(configuration)\$(platform)\eduEd25519.Tests.dll
+  - path: bin\$(configuration)\$(platform)\eduEd25519.Tests.pdb
