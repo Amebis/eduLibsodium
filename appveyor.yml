@@ -16,5 +16,3 @@ artifacts:
   - path: bin\$(configuration)\$(platform)\eduEd25519.dll
   - path: bin\$(configuration)\$(platform)\eduEd25519.pdb
   - path: bin\$(configuration)\$(platform)\sl\eduEd25519.resources.dll
-  - path: bin\$(configuration)\$(platform)\eduEd25519.Tests.dll
-  - path: bin\$(configuration)\$(platform)\eduEd25519.Tests.pdb
