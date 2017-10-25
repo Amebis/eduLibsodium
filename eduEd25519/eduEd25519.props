@@ -11,7 +11,7 @@
   -->
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup>
-    <OutDir>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\$(PlatformTarget)\</OutDir>
     <IntDir>obj\$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
     <CodeAnalysisRuleSet>MixedRecommendedRules.ruleset</CodeAnalysisRuleSet>
@@ -66,9 +66,6 @@
   <!--
     Platform specific settings
   -->
-  <PropertyGroup Condition="'$(Platform)'=='Win32'">
-    <OutDir>$(SolutionDir)bin\$(Configuration)\x86\</OutDir> <!-- C# uses x86 for Win32 platform designation! -->
-  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Platform)'=='Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
