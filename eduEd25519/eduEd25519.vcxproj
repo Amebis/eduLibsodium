@@ -120,6 +120,7 @@
     <EmbeddedResource Include="Strings.sl.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(SolutionDir)\Default.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
