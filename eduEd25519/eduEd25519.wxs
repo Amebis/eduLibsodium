@@ -15,6 +15,11 @@
                 <File Source="eduEd25519.dll"/>
             </Component>
         </DirectoryRef>
+        <DirectoryRef Id="RESOURCEDIRSL">
+            <Component Id="eduEd25519.resources.dll.sl" Guid="{BB1384C5-E197-4E7D-B8DE-FF2466E87FDE}">
+                <File Id="eduEd25519.resources.dll.sl" Source="sl\eduEd25519.resources.dll"/>
+            </Component>
+        </DirectoryRef>
 
 
         <!--
@@ -22,6 +27,7 @@
         -->
         <ComponentGroup Id="eduEd25519.dll">
             <ComponentRef Id="eduEd25519.dll"/>
+            <ComponentRef Id="eduEd25519.resources.dll.sl"/>
         </ComponentGroup>
     </Fragment>
 </Wix>
