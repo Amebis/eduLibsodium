@@ -10,12 +10,12 @@
         <!--
             Components
         -->
-        <DirectoryRef Id="INSTALLDIR">
+        <DirectoryRef Id="BINDIR">
             <Component Id="eduEd25519.dll" Guid="{4D1F1278-9044-4AFD-98E1-71BB39FCB0F1}">
                 <File Source="eduEd25519.dll"/>
             </Component>
         </DirectoryRef>
-        <DirectoryRef Id="RESOURCEDIRSL">
+        <DirectoryRef Id="RESDIRSL">
             <Component Id="eduEd25519.resources.dll.sl" Guid="{BB1384C5-E197-4E7D-B8DE-FF2466E87FDE}">
                 <File Id="eduEd25519.resources.dll.sl" Source="sl\eduEd25519.resources.dll"/>
             </Component>
