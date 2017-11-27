@@ -36,7 +36,6 @@ using namespace System::Security::Permissions;
 //      Revision
 //
 [assembly:AssemblyVersionAttribute("1.0.5")];
-[assembly:AssemblyInformationalVersion("1.0.5")];
 
 [assembly:ComVisible(false)];
 
