@@ -35,7 +35,7 @@ using namespace System::Security::Permissions;
 //      Build Number
 //      Revision
 //
-[assembly:AssemblyVersionAttribute("1.0.5")];
+[assembly:AssemblyVersionAttribute("1.0.6")];
 
 [assembly:ComVisible(false)];
 
