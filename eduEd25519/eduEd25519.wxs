@@ -15,6 +15,11 @@
                 <File Source="eduEd25519.dll"/>
             </Component>
         </DirectoryRef>
+        <DirectoryRef Id="RESDIRNL">
+            <Component Id="eduEd25519.resources.dll.nl" Guid="{3F782C2D-425F-462A-AA2F-B78193EF59D0}">
+                <File Id="eduEd25519.resources.dll.nl" Source="nl\eduEd25519.resources.dll"/>
+            </Component>
+        </DirectoryRef>
         <DirectoryRef Id="RESDIRSL">
             <Component Id="eduEd25519.resources.dll.sl" Guid="{BB1384C5-E197-4E7D-B8DE-FF2466E87FDE}">
                 <File Id="eduEd25519.resources.dll.sl" Source="sl\eduEd25519.resources.dll"/>
@@ -27,6 +32,7 @@
         -->
         <ComponentGroup Id="eduEd25519.dll">
             <ComponentRef Id="eduEd25519.dll"/>
+            <ComponentRef Id="eduEd25519.resources.dll.nl"/>
             <ComponentRef Id="eduEd25519.resources.dll.sl"/>
         </ComponentGroup>
     </Fragment>
