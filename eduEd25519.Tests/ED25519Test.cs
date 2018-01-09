@@ -14,6 +14,32 @@ namespace eduEd25519.Tests
     public class ED25519Tests
     {
         [TestMethod()]
+        public void ED25519TestPublicKey()
+        {
+            byte[]
+                data = Encoding.UTF8.GetBytes("This is a test."),
+                smsg,
+                pub_key;
+
+            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            {
+                // Sign data.
+                smsg = key.SignCombined(data);
+
+                // Get public key.
+                pub_key = key.PublicKey;
+            }
+
+            using (eduEd25519.ED25519 key = new eduEd25519.ED25519(pub_key))
+            {
+                // Verify signature.
+                byte[] data2 = null;
+                Assert.IsTrue(key.VerifyCombined(smsg, ref data2));
+                CollectionAssert.AreEqual(data, data2);
+            }
+        }
+
+        [TestMethod()]
         public void ED25519TestCombined()
         {
             var data = Encoding.UTF8.GetBytes("This is a test.");

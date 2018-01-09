@@ -59,6 +59,7 @@ namespace eduEd25519
 			m_sk = new unsigned char[crypto_sign_ed25519_SECRETKEYBYTES];
 
 			// Extract public key.
+			sodium_memzero(m_sk, crypto_sign_ed25519_SEEDBYTES);
 			Marshal::Copy(pub_key, 0, IntPtr(m_sk + crypto_sign_ed25519_SEEDBYTES), crypto_sign_ed25519_PUBLICKEYBYTES);
 		}
 
