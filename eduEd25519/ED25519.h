@@ -110,18 +110,39 @@ namespace eduEd25519
 				Marshal::Copy(sk, 0, IntPtr(m_sk), crypto_sign_ed25519_SECRETKEYBYTES);
 				Array::Clear(sk, 0, crypto_sign_ed25519_SECRETKEYBYTES);
 			}
+			else
+			{
+				nodeList = document->GetElementsByTagName("PublicKey");
+				if (nodeList->Count > 0)
+				{
+					array<unsigned char>^ pk = Convert::FromBase64String(nodeList->Item(0)->InnerText);
+					sodium_memzero(m_sk, crypto_sign_ed25519_SEEDBYTES);
+					Marshal::Copy(pk, 0, IntPtr(m_sk + crypto_sign_ed25519_SEEDBYTES), crypto_sign_ed25519_PUBLICKEYBYTES);
+				}
+			}
 		}
 
-		virtual String^ ToXmlString(bool) override
+		virtual String^ ToXmlString(bool includePrivateParameters) override
 		{
 			StringBuilder^ sb = gcnew StringBuilder();
 			sb->Append("<ED25519KeyValue>");
 
-			sb->Append("<SecretKey>");
-			array<unsigned char>^ sk = gcnew array<unsigned char>(crypto_sign_ed25519_SECRETKEYBYTES);
-			Marshal::Copy(IntPtr(m_sk), sk, 0, crypto_sign_ed25519_SECRETKEYBYTES);
-			sb->Append(Convert::ToBase64String(sk));
-			sb->Append("</SecretKey>");
+			if (includePrivateParameters)
+			{
+				sb->Append("<SecretKey>");
+				array<unsigned char>^ sk = gcnew array<unsigned char>(crypto_sign_ed25519_SECRETKEYBYTES);
+				Marshal::Copy(IntPtr(m_sk), sk, 0, crypto_sign_ed25519_SECRETKEYBYTES);
+				sb->Append(Convert::ToBase64String(sk));
+				sb->Append("</SecretKey>");
+			}
+			else
+			{
+				sb->Append("<PublicKey>");
+				array<unsigned char>^ pk = gcnew array<unsigned char>(crypto_sign_ed25519_PUBLICKEYBYTES);
+				Marshal::Copy(IntPtr(m_sk + crypto_sign_ed25519_SEEDBYTES), pk, 0, crypto_sign_ed25519_PUBLICKEYBYTES);
+				sb->Append(Convert::ToBase64String(pk));
+				sb->Append("</PublicKey>");
+			}
 
 			sb->Append("</ED25519KeyValue>");
 			return sb->ToString();

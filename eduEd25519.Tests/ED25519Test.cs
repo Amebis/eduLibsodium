@@ -14,6 +14,45 @@ namespace eduEd25519.Tests
     public class ED25519Tests
     {
         [TestMethod()]
+        public void ED25519TestSerialization()
+        {
+            byte[]
+                data = Encoding.UTF8.GetBytes("This is a test."),
+                smsg;
+            string
+                xml,
+                xml_pub;
+
+            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            {
+                // Sign data.
+                smsg = key.SignCombined(data);
+
+                // Export.
+                xml = key.ToXmlString(true);
+                xml_pub = key.ToXmlString(false);
+            }
+
+            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            {
+                key.FromXmlString(xml);
+
+                // Sign data and compare.
+                CollectionAssert.AreEqual(smsg, key.SignCombined(data));
+            }
+
+            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            {
+                key.FromXmlString(xml_pub);
+
+                // Verify signature.
+                byte[] data2 = null;
+                Assert.IsTrue(key.VerifyCombined(smsg, ref data2));
+                CollectionAssert.AreEqual(data, data2);
+            }
+        }
+
+        [TestMethod()]
         public void ED25519TestPublicKey()
         {
             byte[]
