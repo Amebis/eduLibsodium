@@ -14,7 +14,7 @@ namespace eduEd25519.Tests
     public class ED25519Tests
     {
         [TestMethod()]
-        public void ED25519TestSerialization()
+        public void ED25519SerializationTest()
         {
             byte[]
                 data = Encoding.UTF8.GetBytes("This is a test."),
@@ -53,7 +53,7 @@ namespace eduEd25519.Tests
         }
 
         [TestMethod()]
-        public void ED25519TestPublicKey()
+        public void ED25519PublicKeyTest()
         {
             byte[]
                 data = Encoding.UTF8.GetBytes("This is a test."),
@@ -79,7 +79,7 @@ namespace eduEd25519.Tests
         }
 
         [TestMethod()]
-        public void ED25519TestCombined()
+        public void ED25519CombinedTest()
         {
             var data = Encoding.UTF8.GetBytes("This is a test.");
 
@@ -100,7 +100,7 @@ namespace eduEd25519.Tests
         }
 
         [TestMethod()]
-        public void ED25519TestDetached()
+        public void ED25519DetachedTest()
         {
             var data = Encoding.UTF8.GetBytes("This is a test.");
 
