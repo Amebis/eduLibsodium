@@ -120,5 +120,4 @@
   <data name="ErrorUnsupportedHash" xml:space="preserve">
     <value>{0} hashes are not supported by Ed25519. Please, use SHA512.</value>
   </data>
-
 </root>
