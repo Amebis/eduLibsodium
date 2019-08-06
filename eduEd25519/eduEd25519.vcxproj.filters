@@ -69,10 +69,13 @@
     <EmbeddedResource Include="Strings.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+    <EmbeddedResource Include="Strings.nl.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
     <EmbeddedResource Include="Strings.sl.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="Strings.nl.resx">
+    <EmbeddedResource Include="Strings.uk.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

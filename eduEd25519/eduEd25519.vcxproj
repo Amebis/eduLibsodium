@@ -116,9 +116,10 @@
     <None Include="eduEd25519.wxs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Strings.nl.resx" />
     <EmbeddedResource Include="Strings.resx" />
+    <EmbeddedResource Include="Strings.nl.resx" />
     <EmbeddedResource Include="Strings.sl.resx" />
+    <EmbeddedResource Include="Strings.uk.resx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(SolutionDir)\Default.targets" />
