@@ -71,7 +71,7 @@ BEGIN
             VALUE "CompanyName", "SURF"
             VALUE "FileDescription", "High-speed high-security signatures"
             VALUE "FileVersion", "1.0.11"
-            VALUE "LegalCopyright", "Copyright © 2017-2019 The Commons Conservancy eduVPN Programme"
+            VALUE "LegalCopyright", "Copyright © 2017-2020 The Commons Conservancy eduVPN Programme"
             VALUE "OriginalFilename", "eduEd25519.dll"
             VALUE "ProductName", "eduEd25519"
             VALUE "ProductVersion", "1.0.11"
