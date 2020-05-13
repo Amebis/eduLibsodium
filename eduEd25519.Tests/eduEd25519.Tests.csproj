@@ -45,6 +45,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="BLAKE2bTests.cs" />
     <Compile Include="ED25519SignatureFormatterTest.cs" />
     <Compile Include="ED25519Test.cs" />
     <Compile Include="eduBase\MultiplatformDllLoader.cs" />

@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BLAKE2b.h" />
     <ClInclude Include="ED25519.h" />
     <ClInclude Include="ED25519SignatureDeformatter.h" />
     <ClInclude Include="ED25519SignatureFormatter.h" />

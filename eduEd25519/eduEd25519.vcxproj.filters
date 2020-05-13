@@ -45,6 +45,9 @@
     <ClInclude Include="ED25519.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BLAKE2b.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="eduEd25519.cpp">

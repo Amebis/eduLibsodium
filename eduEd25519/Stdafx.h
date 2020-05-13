@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include "BLAKE2b.h"
 #include "SHA256.h"
 #include "SHA512.h"
 
