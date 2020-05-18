@@ -117,6 +117,7 @@
     <None Include="eduEd25519.wxs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Strings.de.resx" />
     <EmbeddedResource Include="Strings.resx" />
     <EmbeddedResource Include="Strings.fr.resx" />
     <EmbeddedResource Include="Strings.nl.resx" />
