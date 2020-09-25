@@ -29,12 +29,8 @@ namespace eduEd25519.Tests
                 // ED25519 to transfer the key information.
                 var ed_formatter = new ED25519SignatureFormatter(ed);
 
-                try
-                {
-                    // Setting the hash algorithm to SHA1 should fail.
-                    ed_formatter.SetHashAlgorithm("SHA1");
-                    Assert.Fail("Unsupported hash algorithm tolerated");
-                } catch (ArgumentException) { }
+                // Setting the hash algorithm to SHA1 should fail.
+                Assert.ThrowsException<ArgumentException>(() => ed_formatter.SetHashAlgorithm("SHA1"));
 
                 // Set the hash algorithm to SHA512.
                 ed_formatter.SetHashAlgorithm("SHA512");
@@ -46,13 +42,8 @@ namespace eduEd25519.Tests
                 // ED25519 to transfer the key information.
                 var ed_deformatter = new ED25519SignatureDeformatter(ed);
 
-                try
-                {
-                    // Setting the hash algorithm to SHA1 should fail.
-                    ed_deformatter.SetHashAlgorithm("SHA1");
-                    Assert.Fail("Unsupported hash algorithm tolerated");
-                }
-                catch (ArgumentException) { }
+                // Setting the hash algorithm to SHA1 should fail.
+                Assert.ThrowsException<ArgumentException>(() => ed_deformatter.SetHashAlgorithm("SHA1"));
 
                 // Set the hash algorithm to SHA512.
                 ed_deformatter.SetHashAlgorithm("SHA512");
