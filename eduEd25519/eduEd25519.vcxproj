@@ -114,9 +114,6 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="eduEd25519.wxs" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Strings.ar.resx" />
     <EmbeddedResource Include="Strings.de.resx" />
     <EmbeddedResource Include="Strings.nb.resx" />
