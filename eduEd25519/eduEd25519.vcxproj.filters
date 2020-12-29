@@ -66,9 +66,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="eduEd25519.wxs" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Strings.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
@@ -91,6 +88,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="Strings.ar.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings.tr.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

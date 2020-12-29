@@ -45,6 +45,11 @@
                 <File Id="eduEd25519.resources.dll.sl" Source="sl\eduEd25519.resources.dll"/>
             </Component>
         </DirectoryRef>
+        <DirectoryRef Id="RESDIRTR">
+            <Component Id="eduEd25519.resources.dll.tr" Guid="{061AD0ED-6639-436E-A19F-592407848272}">
+                <File Id="eduEd25519.resources.dll.tr" Source="tr\eduEd25519.resources.dll"/>
+            </Component>
+        </DirectoryRef>
         <DirectoryRef Id="RESDIRUK">
             <Component Id="eduEd25519.resources.dll.uk" Guid="{5EA78AD2-C483-44FE-A877-82EB8B70CE9C}">
                 <File Id="eduEd25519.resources.dll.uk" Source="uk\eduEd25519.resources.dll"/>
@@ -63,6 +68,7 @@
             <ComponentRef Id="eduEd25519.resources.dll.nb"/>
             <ComponentRef Id="eduEd25519.resources.dll.nl"/>
             <ComponentRef Id="eduEd25519.resources.dll.sl"/>
+            <ComponentRef Id="eduEd25519.resources.dll.tr"/>
             <ComponentRef Id="eduEd25519.resources.dll.uk"/>
         </ComponentGroup>
     </Fragment>
