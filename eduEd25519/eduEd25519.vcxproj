@@ -120,6 +120,7 @@
     <EmbeddedResource Include="Strings.resx" />
     <EmbeddedResource Include="Strings.fr.resx" />
     <EmbeddedResource Include="Strings.nl.resx" />
+    <EmbeddedResource Include="Strings.pt-PT.resx" />
     <EmbeddedResource Include="Strings.sl.resx" />
     <EmbeddedResource Include="Strings.tr.resx" />
     <EmbeddedResource Include="Strings.uk.resx" />

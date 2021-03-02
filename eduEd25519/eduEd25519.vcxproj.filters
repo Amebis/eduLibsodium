@@ -72,6 +72,9 @@
     <EmbeddedResource Include="Strings.nl.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+    <EmbeddedResource Include="Strings.pt-PT.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
     <EmbeddedResource Include="Strings.sl.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
