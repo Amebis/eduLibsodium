@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    eduEd25519 - High-speed high-security signatures
+
+    Copyright: 2017-2021 The Commons Conservancy eduVPN Programme
+    SPDX-License-Identifier: GPL-3.0+
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!--
+    Global settings - applied to all configurations and platforms
+  -->
+  <PropertyGroup>
+    <OutputPath>$(SolutionDir)bin\$(Configuration)\$(Platform)\</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <ErrorReport>prompt</ErrorReport>
+    <DefineConstants>TRACE;PLATFORM_$(Platform)</DefineConstants>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <PlatformTarget>$(Platform)</PlatformTarget>
+  </PropertyGroup>
+
+  <!--
+    Configuration specific settings
+  -->
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+  <!--
+    Platform specific settings
+  -->
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <OutputPath>$(SolutionDir)bin\$(Configuration)\</OutputPath>
+  </PropertyGroup>
+
+</Project>
