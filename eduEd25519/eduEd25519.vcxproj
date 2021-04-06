@@ -115,6 +115,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Strings.ar.resx" />
     <EmbeddedResource Include="Strings.de.resx" />
+    <EmbeddedResource Include="Strings.es.resx" />
+    <EmbeddedResource Include="Strings.es-ES.resx" />
     <EmbeddedResource Include="Strings.nb.resx" />
     <EmbeddedResource Include="Strings.resx" />
     <EmbeddedResource Include="Strings.fr.resx" />
