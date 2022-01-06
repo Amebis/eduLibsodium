@@ -1,7 +1,7 @@
 ﻿/*
     eduEd25519 - High-speed high-security signatures
 
-    Copyright: 2017-2021 The Commons Conservancy eduVPN Programme
+    Copyright: 2017-2022 The Commons Conservancy eduVPN Programme
     SPDX-License-Identifier: GPL-3.0+
 */
 
@@ -23,7 +23,7 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyConfigurationAttribute(L"")];
 [assembly:AssemblyCompanyAttribute(L"SURF")];
 [assembly:AssemblyProductAttribute(L"eduEd25519")];
-[assembly:AssemblyCopyrightAttribute(L"Copyright © 2017-2021 The Commons Conservancy eduVPN Programme")];
+[assembly:AssemblyCopyrightAttribute(L"Copyright © 2017-2022 The Commons Conservancy eduVPN Programme")];
 [assembly:AssemblyTrademarkAttribute(L"")];
 [assembly:AssemblyCultureAttribute(L"")];
 
