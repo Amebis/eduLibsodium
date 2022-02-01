@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <Windows.h>
+
 #include "BLAKE2b.h"
 #include "SHA256.h"
 #include "SHA512.h"
@@ -16,3 +18,5 @@
 #include "ED25519SignatureFormatter.h"
 
 #include "eduLibsodium.h"
+
+#include <sodium/core.h>
