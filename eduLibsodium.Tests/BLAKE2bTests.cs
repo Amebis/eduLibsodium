@@ -17,12 +17,12 @@ namespace eduLibsodium.Tests
         [TestMethod()]
         public void BLAKE2bTest()
         {
-            var hash = new eduLibsodium.BLAKE2b(512);
+            var hash = new BLAKE2b(512);
             CollectionAssert.AreEqual(
                 Convert.FromBase64String($"c+zZSGWOn2QFPsY44AMjM7RHRd0/O0a6PbHlCjC41pVdACGhcYBzvEIYg/R276CxtU9s7LN0LN7eFFqdC2HgGA=="),
                 hash.ComputeHash(Encoding.UTF8.GetBytes("This is a test.")));
 
-            hash = new eduLibsodium.BLAKE2b(160);
+            hash = new BLAKE2b(160);
             CollectionAssert.AreEqual(
                 Convert.FromBase64String($"Qab6xFFRC6sedzhR144l2p7PHeE="),
                 hash.ComputeHash(Encoding.UTF8.GetBytes("This is a test.")));

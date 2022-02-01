@@ -18,11 +18,11 @@ namespace eduLibsodium.Tests
         public void ED25519SignatureFormatterTest()
         {
             // Create a new instance of ED25519.
-            using (eduLibsodium.ED25519 ed = new eduLibsodium.ED25519())
+            using (var ed = new ED25519())
             {
                 // The hash to sign.
                 byte[] hash;
-                using (eduLibsodium.SHA512 sha512 = new eduLibsodium.SHA512())
+                using (var sha512 = new SHA512())
                     hash = sha512.ComputeHash(Encoding.UTF8.GetBytes("This is a test."));
 
                 // Create an ED25519SignatureFormatter object and pass it the

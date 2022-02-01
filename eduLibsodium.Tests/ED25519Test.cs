@@ -23,7 +23,7 @@ namespace eduLibsodium.Tests
                 xml,
                 xml_pub;
 
-            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
+            using (var key = new ED25519())
             {
                 // Sign data.
                 smsg = key.SignCombined(data);
@@ -33,7 +33,7 @@ namespace eduLibsodium.Tests
                 xml_pub = key.ToXmlString(false);
             }
 
-            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
+            using (var key = new ED25519())
             {
                 key.FromXmlString(xml);
 
@@ -41,7 +41,7 @@ namespace eduLibsodium.Tests
                 CollectionAssert.AreEqual(smsg, key.SignCombined(data));
             }
 
-            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
+            using (var key = new ED25519())
             {
                 key.FromXmlString(xml_pub);
 
@@ -60,7 +60,7 @@ namespace eduLibsodium.Tests
                 smsg,
                 pub_key;
 
-            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
+            using (var key = new ED25519())
             {
                 // Sign data.
                 smsg = key.SignCombined(data);
@@ -69,7 +69,7 @@ namespace eduLibsodium.Tests
                 pub_key = key.PublicKey;
             }
 
-            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519(pub_key))
+            using (var key = new ED25519(pub_key))
             {
                 // Verify signature.
                 byte[] data2 = null;
@@ -83,7 +83,7 @@ namespace eduLibsodium.Tests
         {
             var data = Encoding.UTF8.GetBytes("This is a test.");
 
-            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
+            using (var key = new ED25519())
             {
                 // Sign data.
                 var smsg = key.SignCombined(data);
@@ -104,7 +104,7 @@ namespace eduLibsodium.Tests
         {
             var data = Encoding.UTF8.GetBytes("This is a test.");
 
-            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
+            using (var key = new ED25519())
             {
                 // Sign data.
                 var sig = key.SignDetached(data);

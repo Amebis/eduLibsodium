@@ -17,7 +17,7 @@ namespace eduLibsodium.Tests
         [TestMethod()]
         public void SHA512Test()
         {
-            var hash = new eduLibsodium.SHA512();
+            var hash = new SHA512();
 
             CollectionAssert.AreEqual(
                 Convert.FromBase64String($"87+apwFp5KtTOfIHWJhlOP5slte+PRhKA2zegWEQX89TUWQo+glqxWJHu4gIWwWH1eyOVqaAexrzUTBbIQPXSw=="),
