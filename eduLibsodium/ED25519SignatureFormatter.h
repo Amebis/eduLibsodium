@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include "eduLibsodium.h"
+
 // When libsodium include files are not found, read the chapter "Compiling libsodium" in README.md first.
 #include <sodium/crypto_sign_ed25519.h>
 #include <sodium/utils.h>
