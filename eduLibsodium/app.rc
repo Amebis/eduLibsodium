@@ -71,7 +71,7 @@ BEGIN
             VALUE "CompanyName", "SURF"
             VALUE "FileDescription", ".NET Framework-libsodium bridge"
             VALUE "FileVersion", "1.11"
-            VALUE "LegalCopyright", "Copyright © 2017-2022 The Commons Conservancy eduVPN Programme"
+            VALUE "LegalCopyright", "Copyright © 2017-2022 The Commons Conservancy"
             VALUE "OriginalFilename", "eduLibsodium.dll"
             VALUE "ProductName", "eduLibsodium"
             VALUE "ProductVersion", "1.11"
