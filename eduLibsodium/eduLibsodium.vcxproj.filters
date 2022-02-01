@@ -24,7 +24,7 @@
     <ClInclude Include="eduLibsodium.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Stdafx.h">
+    <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -56,7 +56,7 @@
     <ClCompile Include="AssemblyInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Stdafx.cpp">
+    <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

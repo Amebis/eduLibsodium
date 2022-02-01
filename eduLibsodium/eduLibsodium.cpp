@@ -5,8 +5,6 @@
     SPDX-License-Identifier: GPL-3.0+
 */
 
-#include "stdafx.h"
-
-#include "eduLibsodium.h"
+#include "pch.h"
 
 #pragma comment(lib, "libsodium.lib")
