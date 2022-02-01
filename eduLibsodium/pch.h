@@ -10,6 +10,7 @@
 #include <Windows.h>
 
 #include "BLAKE2b.h"
+#include "Box.h"
 #include "SHA256.h"
 #include "SHA512.h"
 

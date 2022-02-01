@@ -53,6 +53,7 @@
     <Compile Include="BLAKE2bTests.cs" />
     <Compile Include="ED25519SignatureFormatterTest.cs" />
     <Compile Include="ED25519Test.cs" />
+    <Compile Include="BoxTests.cs" />
     <Compile Include="eduBase\MultiplatformDllLoader.cs" />
     <Compile Include="SHA256Test.cs" />
     <Compile Include="SHA512Tests.cs" />

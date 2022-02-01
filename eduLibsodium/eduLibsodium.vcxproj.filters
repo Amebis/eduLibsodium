@@ -48,6 +48,9 @@
     <ClInclude Include="BLAKE2b.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="eduLibsodium.cpp">
