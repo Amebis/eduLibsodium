@@ -51,11 +51,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BLAKE2bTests.cs" />
-    <Compile Include="ED25519SignatureFormatterTest.cs" />
-    <Compile Include="ED25519Test.cs" />
+    <Compile Include="ED25519SignatureFormatterTests.cs" />
+    <Compile Include="ED25519Tests.cs" />
     <Compile Include="BoxTests.cs" />
     <Compile Include="eduBase\MultiplatformDllLoader.cs" />
-    <Compile Include="SHA256Test.cs" />
+    <Compile Include="SHA256Tests.cs" />
     <Compile Include="SHA512Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
