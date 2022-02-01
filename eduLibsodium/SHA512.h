@@ -1,5 +1,5 @@
 /*
-	eduEd25519 - High-speed high-security signatures
+	eduLibsodium - .NET Framework-libsodium bridge
 
 	Copyright: 2017 The Commons Conservancy eduVPN Programme
 	SPDX-License-Identifier: GPL-3.0+
@@ -13,7 +13,7 @@
 using namespace System;
 using namespace System::Runtime::InteropServices;
 
-namespace eduEd25519
+namespace eduLibsodium
 {
 	public ref class SHA512 : Security::Cryptography::HashAlgorithm
 	{

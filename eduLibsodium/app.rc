@@ -69,11 +69,11 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "CompanyName", "SURF"
-            VALUE "FileDescription", "High-speed high-security signatures"
+            VALUE "FileDescription", ".NET Framework-libsodium bridge"
             VALUE "FileVersion", "1.11"
             VALUE "LegalCopyright", "Copyright © 2017-2022 The Commons Conservancy eduVPN Programme"
-            VALUE "OriginalFilename", "eduEd25519.dll"
-            VALUE "ProductName", "eduEd25519"
+            VALUE "OriginalFilename", "eduLibsodium.dll"
+            VALUE "ProductName", "eduLibsodium"
             VALUE "ProductVersion", "1.11"
         END
     END

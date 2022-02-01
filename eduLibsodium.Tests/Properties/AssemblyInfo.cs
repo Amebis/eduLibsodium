@@ -1,5 +1,5 @@
 ﻿/*
-    eduEd25519 - High-speed high-security signatures
+    eduLibsodium - .NET Framework-libsodium bridge
 
     Copyright: 2017-2022 The Commons Conservancy eduVPN Programme
     SPDX-License-Identifier: GPL-3.0+
@@ -11,9 +11,9 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("eduEd25519.Tests")]
+[assembly: AssemblyTitle("eduLibsodium.Tests")]
 [assembly: AssemblyCompany("SURF")]
-[assembly: AssemblyProduct("eduEd25519")]
+[assembly: AssemblyProduct("eduLibsodium")]
 [assembly: AssemblyCopyright("Copyright © 2017-2022 The Commons Conservancy eduVPN Programme")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

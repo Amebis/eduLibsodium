@@ -1,5 +1,5 @@
 ﻿/*
-    eduEd25519 - High-speed high-security signatures
+    eduLibsodium - .NET Framework-libsodium bridge
 
     Copyright: 2017-2022 The Commons Conservancy eduVPN Programme
     SPDX-License-Identifier: GPL-3.0+
@@ -8,7 +8,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Text;
 
-namespace eduEd25519.Tests
+namespace eduLibsodium.Tests
 {
     [TestClass()]
     public class ED25519Tests
@@ -23,7 +23,7 @@ namespace eduEd25519.Tests
                 xml,
                 xml_pub;
 
-            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
             {
                 // Sign data.
                 smsg = key.SignCombined(data);
@@ -33,7 +33,7 @@ namespace eduEd25519.Tests
                 xml_pub = key.ToXmlString(false);
             }
 
-            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
             {
                 key.FromXmlString(xml);
 
@@ -41,7 +41,7 @@ namespace eduEd25519.Tests
                 CollectionAssert.AreEqual(smsg, key.SignCombined(data));
             }
 
-            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
             {
                 key.FromXmlString(xml_pub);
 
@@ -60,7 +60,7 @@ namespace eduEd25519.Tests
                 smsg,
                 pub_key;
 
-            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
             {
                 // Sign data.
                 smsg = key.SignCombined(data);
@@ -69,7 +69,7 @@ namespace eduEd25519.Tests
                 pub_key = key.PublicKey;
             }
 
-            using (eduEd25519.ED25519 key = new eduEd25519.ED25519(pub_key))
+            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519(pub_key))
             {
                 // Verify signature.
                 byte[] data2 = null;
@@ -83,7 +83,7 @@ namespace eduEd25519.Tests
         {
             var data = Encoding.UTF8.GetBytes("This is a test.");
 
-            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
             {
                 // Sign data.
                 var smsg = key.SignCombined(data);
@@ -104,7 +104,7 @@ namespace eduEd25519.Tests
         {
             var data = Encoding.UTF8.GetBytes("This is a test.");
 
-            using (eduEd25519.ED25519 key = new eduEd25519.ED25519())
+            using (eduLibsodium.ED25519 key = new eduLibsodium.ED25519())
             {
                 // Sign data.
                 var sig = key.SignDetached(data);

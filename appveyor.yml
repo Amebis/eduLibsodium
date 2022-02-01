@@ -9,7 +9,7 @@ platform:
   - x86
   - x64
 build:
-  project: eduEd25519.sln
+  project: eduLibsodium.sln
   parallel: true
   verbosity: minimal
 artifacts:

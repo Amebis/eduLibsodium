@@ -1,5 +1,5 @@
 ﻿/*
-    eduEd25519 - High-speed high-security signatures
+    eduLibsodium - .NET Framework-libsodium bridge
 
     Copyright: 2017 The Commons Conservancy eduVPN Programme
     SPDX-License-Identifier: GPL-3.0+
@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Text;
 
-namespace eduEd25519.Tests
+namespace eduLibsodium.Tests
 {
     [TestClass()]
     public class SHA256Tests
@@ -17,7 +17,7 @@ namespace eduEd25519.Tests
         [TestMethod()]
         public void SHA256Test()
         {
-            var hash = new eduEd25519.SHA256();
+            var hash = new eduLibsodium.SHA256();
 
             CollectionAssert.AreEqual(
                 Convert.FromBase64String($"qKL26+KGaXxSfrNaWLVTlTLps647ZNTrCkb7ZXtBViw="),
