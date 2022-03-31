@@ -1,6 +1,10 @@
 version: 1.11.{build}
 image: Visual Studio 2019
 before_build:
+  - git submodule update -q --init --recursive
+  - cmd: |
+      if /i %platform% equ x86 msbuild "libsodium\libsodium.sln" "/p:Configuration=%configuration%;Platform=Win32" /m
+      if /i %platform% equ x64 msbuild "libsodium\libsodium.sln" "/p:Configuration=%configuration%;Platform=x64"   /m
   - nuget restore -Verbosity quiet
 configuration:
   - Debug
