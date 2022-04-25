@@ -47,11 +47,11 @@ namespace eduLibsodium
 		}
 
 	protected:
-		virtual void HashCore(array<unsigned char> ^data, int start, int size) override
+		virtual void HashCore(array<unsigned char>^ data, int start, int size) override
 		{
 			// Extract, hash, delete.
-			unsigned char *buffer = new unsigned char[size];
-			#pragma warning(suppress: 6001)
+			unsigned char* buffer = new unsigned char[size];
+#pragma warning(suppress: 6001)
 			Marshal::Copy(data, start, IntPtr(buffer), size);
 			crypto_generichash_blake2b_update(m_state, buffer, size);
 			delete[] buffer;
@@ -60,7 +60,7 @@ namespace eduLibsodium
 		virtual array<unsigned char>^ HashFinal() override
 		{
 			// Finalize and get hash value.
-			unsigned char *buffer = new unsigned char[m_outlen];
+			unsigned char* buffer = new unsigned char[m_outlen];
 			crypto_generichash_blake2b_final(m_state, buffer, m_outlen);
 
 			// Marshal to managed.

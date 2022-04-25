@@ -11,16 +11,16 @@
 #include <sodium/crypto_sign_ed25519.h>
 #include <sodium/utils.h>
 extern "C" {
-	int _crypto_sign_ed25519_detached(unsigned char *sig,
-		unsigned long long *siglen_p,
-		const unsigned char *m,
+	int _crypto_sign_ed25519_detached(unsigned char* sig,
+		unsigned long long* siglen_p,
+		const unsigned char* m,
 		unsigned long long mlen,
-		const unsigned char *sk, int prehashed);
+		const unsigned char* sk, int prehashed);
 
-	int _crypto_sign_ed25519_verify_detached(const unsigned char *sig,
-		const unsigned char *m,
+	int _crypto_sign_ed25519_verify_detached(const unsigned char* sig,
+		const unsigned char* m,
 		unsigned long long   mlen,
-		const unsigned char *pk,
+		const unsigned char* pk,
 		int prehashed);
 }
 
@@ -93,7 +93,7 @@ namespace eduLibsodium
 			}
 		}
 
-		virtual void FromXmlString(String ^xmlString) override
+		virtual void FromXmlString(String^ xmlString) override
 		{
 			if (xmlString == nullptr)
 				throw gcnew ArgumentNullException("xmlString");
@@ -161,12 +161,12 @@ namespace eduLibsodium
 		array<unsigned char>^ SignCombined(array<unsigned char>^ data, int start, int mlen)
 		{
 			// Extract data.
-			unsigned char *m = new unsigned char[mlen];
+			unsigned char* m = new unsigned char[mlen];
 #pragma warning(suppress: 6001)
 			Marshal::Copy(data, start, IntPtr(m), mlen);
 
 			// Sign.
-			unsigned char *sm = new unsigned char[crypto_sign_ed25519_BYTES + mlen];
+			unsigned char* sm = new unsigned char[crypto_sign_ed25519_BYTES + mlen];
 			unsigned long long smlen;
 			crypto_sign_ed25519(sm, &smlen, m, mlen, m_sk);
 			delete[] m;
@@ -186,12 +186,12 @@ namespace eduLibsodium
 		bool VerifyCombined(array<unsigned char>^ smsg, int start, int smlen, array<unsigned char>^% data)
 		{
 			// Extract signed message.
-			unsigned char *sm = new unsigned char[smlen];
+			unsigned char* sm = new unsigned char[smlen];
 #pragma warning(suppress: 6001)
 			Marshal::Copy(smsg, start, IntPtr(sm), smlen);
 
 			// Verify.
-			unsigned char *m = new unsigned char[smlen - crypto_sign_ed25519_BYTES];
+			unsigned char* m = new unsigned char[smlen - crypto_sign_ed25519_BYTES];
 			unsigned long long mlen;
 			bool success = crypto_sign_ed25519_open(m, &mlen, sm, smlen, m_sk + crypto_sign_ed25519_SEEDBYTES) == 0;
 			delete[] sm;
@@ -212,12 +212,12 @@ namespace eduLibsodium
 		array<unsigned char>^ SignDetached(array<unsigned char>^ data, int start, int mlen)
 		{
 			// Extract data.
-			unsigned char *m = new unsigned char[mlen];
+			unsigned char* m = new unsigned char[mlen];
 #pragma warning(suppress: 6001)
 			Marshal::Copy(data, start, IntPtr(m), mlen);
 
 			// Sign.
-			unsigned char *sig = new unsigned char[crypto_sign_ed25519_BYTES];
+			unsigned char* sig = new unsigned char[crypto_sign_ed25519_BYTES];
 			unsigned long long sig_len;
 			crypto_sign_ed25519_detached(sig, &sig_len, m, mlen, m_sk);
 			delete[] m;
@@ -237,12 +237,12 @@ namespace eduLibsodium
 		bool VerifyDetached(array<unsigned char>^ data, int start, int mlen, array<unsigned char>^ signature)
 		{
 			// Extract data.
-			unsigned char *m = new unsigned char[mlen];
+			unsigned char* m = new unsigned char[mlen];
 #pragma warning(suppress: 6001)
 			Marshal::Copy(data, start, IntPtr(m), mlen);
 
 			// Extract signature.
-			unsigned char *sig = new unsigned char[crypto_sign_ed25519_BYTES];
+			unsigned char* sig = new unsigned char[crypto_sign_ed25519_BYTES];
 #pragma warning(suppress: 6001)
 			Marshal::Copy(signature, 0, IntPtr(sig), crypto_sign_ed25519_BYTES);
 
@@ -259,11 +259,11 @@ namespace eduLibsodium
 			return VerifyDetached(data, 0, data->Length, signature);
 		}
 
-		array<unsigned char>^ SignHash(array<unsigned char> ^hash)
+		array<unsigned char>^ SignHash(array<unsigned char>^ hash)
 		{
 			// Extract hash.
 			int ph_size = hash->Length;
-			unsigned char *ph_buffer = new unsigned char[ph_size];
+			unsigned char* ph_buffer = new unsigned char[ph_size];
 #pragma warning(suppress: 6001)
 			Marshal::Copy(hash, 0, IntPtr(ph_buffer), ph_size);
 
@@ -279,17 +279,17 @@ namespace eduLibsodium
 			return result;
 		}
 
-		bool VerifyHash(array<unsigned char> ^hash, array<unsigned char> ^signature)
+		bool VerifyHash(array<unsigned char>^ hash, array<unsigned char>^ signature)
 		{
 			// Extract hash.
 			int ph_size = hash->Length;
-			unsigned char *ph_buffer = new unsigned char[ph_size];
+			unsigned char* ph_buffer = new unsigned char[ph_size];
 #pragma warning(suppress: 6001)
 			Marshal::Copy(hash, 0, IntPtr(ph_buffer), ph_size);
 
 			// Extract signature.
 			int sig_size = signature->Length;
-			unsigned char *sig_buffer = new unsigned char[sig_size];
+			unsigned char* sig_buffer = new unsigned char[sig_size];
 #pragma warning(suppress: 6001)
 			Marshal::Copy(signature, 0, IntPtr(sig_buffer), sig_size);
 

@@ -66,7 +66,7 @@ namespace eduLibsodium
 			}
 		}
 
-		virtual void FromXmlString(String ^xmlString) override
+		virtual void FromXmlString(String^ xmlString) override
 		{
 			if (xmlString == nullptr)
 				throw gcnew ArgumentNullException("xmlString");
@@ -82,7 +82,8 @@ namespace eduLibsodium
 				array<unsigned char>^ sk = Convert::FromBase64String(nodeList->Item(0)->InnerText);
 				Marshal::Copy(sk, 0, IntPtr(m_sk), crypto_box_SECRETKEYBYTES);
 				Array::Clear(sk, 0, crypto_box_SECRETKEYBYTES);
-			} else
+			}
+			else
 				sodium_memzero(m_sk, crypto_box_SECRETKEYBYTES);
 
 			nodeList = document->GetElementsByTagName("PublicKey");

@@ -46,11 +46,11 @@ namespace eduLibsodium
 		}
 
 	protected:
-		virtual void HashCore(array<unsigned char> ^data, int start, int size) override
+		virtual void HashCore(array<unsigned char>^ data, int start, int size) override
 		{
 			// Extract, hash, delete.
-			unsigned char *buffer = new unsigned char[size];
-			#pragma warning(suppress: 6001)
+			unsigned char* buffer = new unsigned char[size];
+#pragma warning(suppress: 6001)
 			Marshal::Copy(data, start, IntPtr(buffer), size);
 			crypto_hash_sha256_update(m_state, buffer, size);
 			delete[] buffer;

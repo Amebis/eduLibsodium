@@ -25,26 +25,26 @@ namespace eduLibsodium
 		{
 		}
 
-		ED25519SignatureFormatter(Security::Cryptography::AsymmetricAlgorithm ^key)
+		ED25519SignatureFormatter(Security::Cryptography::AsymmetricAlgorithm^ key)
 		{
 			ED25519SignatureFormatter::SetKey(key);
 		}
 
-		virtual void SetKey(Security::Cryptography::AsymmetricAlgorithm ^key) override
+		virtual void SetKey(Security::Cryptography::AsymmetricAlgorithm^ key) override
 		{
 			m_key = dynamic_cast<ED25519^>(key);
 			if (m_key == nullptr)
 				throw gcnew ArgumentNullException(L"key");
 		}
 
-		virtual void SetHashAlgorithm(String ^name) override
+		virtual void SetHashAlgorithm(String^ name) override
 		{
 			// ED25519SignatureFormatter always uses SHA512 algorithm.
 			if (name->ToUpper()->CompareTo(L"SHA512") != 0)
 				throw gcnew ArgumentException(String::Format(GetResourceString(L"ErrorUnsupportedHash"), name), L"name");
 		}
 
-		virtual array<unsigned char>^ CreateSignature(array<unsigned char> ^hash) override
+		virtual array<unsigned char>^ CreateSignature(array<unsigned char>^ hash) override
 		{
 			return m_key->SignHash(hash);
 		}

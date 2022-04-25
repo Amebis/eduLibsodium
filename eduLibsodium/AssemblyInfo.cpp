@@ -1,8 +1,8 @@
 ﻿/*
-    eduLibsodium - .NET Framework-libsodium bridge
+	eduLibsodium - .NET Framework-libsodium bridge
 
-    Copyright: 2017-2022 The Commons Conservancy
-    SPDX-License-Identifier: GPL-3.0+
+	Copyright: 2017-2022 The Commons Conservancy
+	SPDX-License-Identifier: GPL-3.0+
 */
 
 #include "pch.h"
@@ -19,13 +19,13 @@ using namespace System::Security::Permissions;
 // associated with an assembly.
 //
 [assembly:AssemblyTitleAttribute(L"eduLibsodium")];
-[assembly:AssemblyDescriptionAttribute(L"")];
-[assembly:AssemblyConfigurationAttribute(L"")];
-[assembly:AssemblyCompanyAttribute(L"SURF")];
-[assembly:AssemblyProductAttribute(L"eduLibsodium")];
-[assembly:AssemblyCopyrightAttribute(L"Copyright © 2017-2022 The Commons Conservancy")];
-[assembly:AssemblyTrademarkAttribute(L"")];
-[assembly:AssemblyCultureAttribute(L"")];
+[assembly:AssemblyDescriptionAttribute(L"")] ;
+[assembly:AssemblyConfigurationAttribute(L"")] ;
+[assembly:AssemblyCompanyAttribute(L"SURF")] ;
+[assembly:AssemblyProductAttribute(L"eduLibsodium")] ;
+[assembly:AssemblyCopyrightAttribute(L"Copyright © 2017-2022 The Commons Conservancy")] ;
+[assembly:AssemblyTrademarkAttribute(L"")] ;
+[assembly:AssemblyCultureAttribute(L"")] ;
 
 //
 // Version information for an assembly consists of the following four values:
@@ -37,6 +37,6 @@ using namespace System::Security::Permissions;
 //
 [assembly:AssemblyVersionAttribute("1.12.*")];
 
-[assembly:ComVisible(false)];
+[assembly:ComVisible(false)] ;
 
-[assembly:CLSCompliantAttribute(true)];
+[assembly:CLSCompliantAttribute(true)] ;
