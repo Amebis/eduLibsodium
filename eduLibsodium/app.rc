@@ -52,8 +52,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
-    FILEVERSION 1,13,0,0
-    PRODUCTVERSION 1,13,0,0
+    FILEVERSION 1,14,0,0
+    PRODUCTVERSION 1,14,0,0
     FILEFLAGSMASK VS_FF_DEBUG | VS_FF_PRERELEASE | VS_FF_PATCHED | VS_FF_PRIVATEBUILD | VS_FF_SPECIALBUILD
 #ifdef _DEBUG
     FILEFLAGS VS_FF_DEBUG
@@ -70,11 +70,11 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "SURF"
             VALUE "FileDescription", ".NET Framework-libsodium bridge"
-            VALUE "FileVersion", "1.13"
+            VALUE "FileVersion", "1.14"
             VALUE "LegalCopyright", "Copyright © 2017-2022 The Commons Conservancy"
             VALUE "OriginalFilename", "eduLibsodium.dll"
             VALUE "ProductName", "eduLibsodium"
-            VALUE "ProductVersion", "1.13"
+            VALUE "ProductVersion", "1.14"
         END
     END
     BLOCK "VarFileInfo"
