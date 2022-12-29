@@ -71,7 +71,7 @@ BEGIN
             VALUE "CompanyName", "SURF"
             VALUE "FileDescription", ".NET Framework-libsodium bridge"
             VALUE "FileVersion", "1.14"
-            VALUE "LegalCopyright", "Copyright © 2017-2022 The Commons Conservancy"
+            VALUE "LegalCopyright", "Copyright © 2017-2023 The Commons Conservancy"
             VALUE "OriginalFilename", "eduLibsodium.dll"
             VALUE "ProductName", "eduLibsodium"
             VALUE "ProductVersion", "1.14"

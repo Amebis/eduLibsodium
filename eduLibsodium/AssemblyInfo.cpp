@@ -1,7 +1,7 @@
 ﻿/*
 	eduLibsodium - .NET Framework-libsodium bridge
 
-	Copyright: 2017-2022 The Commons Conservancy
+	Copyright: 2017-2023 The Commons Conservancy
 	SPDX-License-Identifier: GPL-3.0+
 */
 
@@ -23,7 +23,7 @@ using namespace System::Security::Permissions;
 [assembly:AssemblyConfigurationAttribute(L"")] ;
 [assembly:AssemblyCompanyAttribute(L"SURF")] ;
 [assembly:AssemblyProductAttribute(L"eduLibsodium")] ;
-[assembly:AssemblyCopyrightAttribute(L"Copyright © 2017-2022 The Commons Conservancy")] ;
+[assembly:AssemblyCopyrightAttribute(L"Copyright © 2017-2023 The Commons Conservancy")] ;
 [assembly:AssemblyTrademarkAttribute(L"")] ;
 [assembly:AssemblyCultureAttribute(L"")] ;
 
