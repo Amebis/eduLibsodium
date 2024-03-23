@@ -1,7 +1,7 @@
 /*
 	eduLibsodium - .NET Framework-libsodium bridge
 
-	Copyright: 2022-2023 The Commons Conservancy
+	Copyright: 2022-2024 The Commons Conservancy
 	SPDX-License-Identifier: GPL-3.0+
 */
 
